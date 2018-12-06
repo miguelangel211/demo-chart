@@ -1,14 +1,94 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+    
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:demo_chart"
+             xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
              x:Class="demo_chart.MainPage">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>
 
+    <ContentPage.BindingContext>
+        <local:ViewModel/>
+    
+    </ContentPage.BindingContext>
+  
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <chart:SfChart VerticalOptions="FillAndExpand" BackgroundColor="White" >
+
+                <chart:SfChart.PrimaryAxis>
+                    <chart:CategoryAxis/>
+                </chart:SfChart.PrimaryAxis>
+
+            <chart:SfChart.SecondaryAxis >
+                <chart:NumericalAxis >
+
+                    <chart:NumericalAxis.LabelStyle>
+
+                        <chart:ChartAxisLabelStyle TextColor="Black" Font="Bold,10"/>
+
+                    </chart:NumericalAxis.LabelStyle>
+                </chart:NumericalAxis>
+            </chart:SfChart.SecondaryAxis>
+
+            <chart:SplineAreaSeries  ItemsSource="{Binding Concluidos}" XBindingPath="hora" YBindingPath="Cantidad"
+                          Opacity=".8" Color="Yellow"
+                          >
+                <chart:SplineAreaSeries.DataMarker>
+
+                        <chart:ChartDataMarker
+                    ShowLabel="False" 
+                    ShowMarker="True"
+						   MarkerType="Ellipse"
+                    />
+
+                    </chart:SplineAreaSeries.DataMarker>
+                </chart:SplineAreaSeries>
+
+
+
+            <chart:SplineAreaSeries  ItemsSource="{Binding Proceso}" XBindingPath="hora" YBindingPath="Cantidad"
+                          Opacity=".8" Color="LightGreen"
+                          >
+                <chart:SplineAreaSeries.DataMarker>
+
+                    <chart:ChartDataMarker
+                    ShowLabel="False" 
+                    ShowMarker="True"
+                        
+						   MarkerType="Ellipse"
+                    />
+
+                </chart:SplineAreaSeries.DataMarker>
+            </chart:SplineAreaSeries>
+
+
+            <chart:SplineAreaSeries  ItemsSource="{Binding Delays}" XBindingPath="hora" YBindingPath="Cantidad"
+                          Opacity=".8" Color="Red"
+                          >
+                <chart:SplineAreaSeries.DataMarker>
+
+                    <chart:ChartDataMarker
+                    ShowLabel="False" 
+                    ShowMarker="True"
+						   MarkerType="Ellipse"
+                    />
+
+                </chart:SplineAreaSeries.DataMarker>
+            </chart:SplineAreaSeries>
+
+        </chart:SfChart>
+
+            <Button
+                Text="26 septiembre"
+                BindingContext=""
+                ></Button>
+        </Grid>
+
+  
 </ContentPage>

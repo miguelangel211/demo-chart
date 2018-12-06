@@ -12,6 +12,12 @@ namespace demo_chart
         public MainPage()
         {
             InitializeComponent();
+
+
         }
+        
+
+
+
     }
 }

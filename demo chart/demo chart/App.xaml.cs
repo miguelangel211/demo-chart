@@ -9,6 +9,7 @@ namespace demo_chart
     {
         public App()
         {
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NDgxMDZAMzEzNjJlMzMyZTMwRTFrUmNpL2lBOUhnQmhLSXc3MHpkdU5ONHpTVTR0d3pVeklBVjlCWUV5bz0=");
             InitializeComponent();
 
             MainPage = new MainPage();
@@ -16,7 +17,8 @@ namespace demo_chart
 
         protected override void OnStart()
         {
-            // Handle when your app starts
+            Toast.MakeText(this, "Procedimento de logon ", ToastLength.Long).Show();
+
         }
 
         protected override void OnSleep()
