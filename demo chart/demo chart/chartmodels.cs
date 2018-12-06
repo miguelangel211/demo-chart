@@ -52,9 +52,87 @@ namespace demo_chart
 
 
                 Concluidos = new ObservableCollection<Model>() {
-                new Model("20:00",2),
+             //   new Model("12a",0),
+               // new Model("1a",0),
+                //new Model("2a",0),
+                //new Model("3a",0),
+                //new Model("4a",0),
+                new Model("5a",0),
+                new Model("6a",0),
+                new Model("7a",0),
+                new Model("8a",0),
+                new Model("9a",0),
+                new Model("10a",1),
+                new Model("11a",2),
+                new Model("12p",2),
+                new Model("1p",2),
+                new Model("2p",2),
+                new Model("3p",1),
+                new Model("4p",0),
+                new Model("5p",0),
+                new Model("6p",0),
+                new Model("7p",0),
+                new Model("8p",0),
+               // new Model("9p",0),
+             //   new Model("10p",0),
 
-                new Model("02:00",3)
+
+            };
+
+                Proceso = new ObservableCollection<Model>() {
+               // new Model("12a",0),
+                //new Model("1a",0),
+                //new Model("2a",0),
+                //new Model("3a",0),
+                //new Model("4a",0),
+                new Model("5a",0),
+                new Model("6a",0),
+                new Model("7a",1),
+                new Model("8a",2),
+                new Model("9a",3),
+                new Model("10a",2),
+                new Model("11a",1),
+                new Model("12p",0),
+                new Model("1p",0),
+                new Model("2p",0),
+                new Model("3p",0),
+                new Model("4p",0),
+                new Model("5p",0),
+                new Model("6p",0),
+                new Model("7p",0),
+                new Model("8p",0),
+                //new Model("9p",0),
+                //new Model("10p",0),
+
+
+            };
+
+
+                Delays = new ObservableCollection<Model>() {
+                //new Model("12a",0),
+                //new Model("1a",0),
+                //new Model("2a",0),
+                //new Model("3a",0),
+                //new Model("4a",0),
+                new Model("5a",0),
+                new Model("6a",0),
+                new Model("7a",0),
+                new Model("8a",0),
+                new Model("9a",0),
+                new Model("10a",0),
+                new Model("11a",0),
+                new Model("12p",0),
+                new Model("1p",0),
+                new Model("2p",0),
+                new Model("3p",0),
+                new Model("4p",1),
+                new Model("5p",2),
+                new Model("6p",2),
+                new Model("7p",1),
+                new Model("8p",0),
+                //new Model("9p",0),
+                //new Model("10p",0),
+
 
             };
 
@@ -69,9 +147,9 @@ namespace demo_chart
     {
         public string hora { get; set; }
 
-        public int Cantidad { get; set; }
+        public double Cantidad { get; set; }
 
-        public Model(string xValue, int yValue)
+        public Model(string xValue, double yValue)
         {
             hora = xValue;
             Cantidad = yValue;

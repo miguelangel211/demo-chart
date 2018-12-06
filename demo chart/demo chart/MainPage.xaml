@@ -26,8 +26,7 @@
                 </chart:SfChart.PrimaryAxis>
 
             <chart:SfChart.SecondaryAxis >
-                <chart:NumericalAxis >
-
+                <chart:NumericalAxis  RangePadding="Normal" >
                     <chart:NumericalAxis.LabelStyle>
 
                         <chart:ChartAxisLabelStyle TextColor="Black" Font="Bold,10"/>
@@ -37,57 +36,29 @@
             </chart:SfChart.SecondaryAxis>
 
             <chart:SplineAreaSeries  ItemsSource="{Binding Concluidos}" XBindingPath="hora" YBindingPath="Cantidad"
-                          Opacity=".8" Color="Yellow"
+                          Opacity=".8" Color="Yellow" SplineType="Monotonic"
                           >
-                <chart:SplineAreaSeries.DataMarker>
-
-                        <chart:ChartDataMarker
-                    ShowLabel="False" 
-                    ShowMarker="True"
-						   MarkerType="Ellipse"
-                    />
-
-                    </chart:SplineAreaSeries.DataMarker>
+    
                 </chart:SplineAreaSeries>
 
 
 
             <chart:SplineAreaSeries  ItemsSource="{Binding Proceso}" XBindingPath="hora" YBindingPath="Cantidad"
-                          Opacity=".8" Color="LightGreen"
+                          Opacity=".8" Color="LightGreen" SplineType="Monotonic"
                           >
-                <chart:SplineAreaSeries.DataMarker>
-
-                    <chart:ChartDataMarker
-                    ShowLabel="False" 
-                    ShowMarker="True"
-                        
-						   MarkerType="Ellipse"
-                    />
-
-                </chart:SplineAreaSeries.DataMarker>
+           
             </chart:SplineAreaSeries>
 
 
             <chart:SplineAreaSeries  ItemsSource="{Binding Delays}" XBindingPath="hora" YBindingPath="Cantidad"
-                          Opacity=".8" Color="Red"
+                          Opacity=".8" Color="Red" SplineType="Monotonic"
                           >
-                <chart:SplineAreaSeries.DataMarker>
 
-                    <chart:ChartDataMarker
-                    ShowLabel="False" 
-                    ShowMarker="True"
-						   MarkerType="Ellipse"
-                    />
-
-                </chart:SplineAreaSeries.DataMarker>
             </chart:SplineAreaSeries>
 
         </chart:SfChart>
 
-            <Button
-                Text="26 septiembre"
-                BindingContext=""
-                ></Button>
+            
         </Grid>
 
   

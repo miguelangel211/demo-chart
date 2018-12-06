@@ -17,7 +17,6 @@ namespace demo_chart
 
         protected override void OnStart()
         {
-            Toast.MakeText(this, "Procedimento de logon ", ToastLength.Long).Show();
 
         }
 
