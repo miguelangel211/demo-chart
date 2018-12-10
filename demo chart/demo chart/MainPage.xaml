@@ -4,34 +4,72 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:demo_chart"
              xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
-             x:Class="demo_chart.MainPage">
+             x:Class="demo_chart.MainPage"
+             BackgroundColor="#0E111E"
+             >
 
 
     <ContentPage.BindingContext>
         <local:ViewModel/>
     
     </ContentPage.BindingContext>
-  
+   
 
-        <Grid>
+
+    <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            
-            <chart:SfChart VerticalOptions="FillAndExpand" BackgroundColor="White" >
+
+        <chart:SfChart  Grid.Row="0" VerticalOptions="FillAndExpand" BackgroundColor="#0E111E" >
 
                 <chart:SfChart.PrimaryAxis>
-                    <chart:CategoryAxis/>
-                </chart:SfChart.PrimaryAxis>
+                <chart:CategoryAxis>
+                    <chart:CategoryAxis.LabelStyle>
+
+                        <chart:ChartAxisLabelStyle TextColor="White" Font="Bold,8"/>
+
+                    </chart:CategoryAxis.LabelStyle>
+
+
+                    <chart:CategoryAxis.StripLines>
+                        <chart:NumericalStripLine Start="0" Width ="1" RepeatEvery="2" FillColor="#3C465C"/>
+                        <chart:NumericalStripLine Start="2" Width ="1" RepeatEvery="2" FillColor="#3C465C"/>
+                        <chart:NumericalStripLine Start="4" Width ="1" RepeatEvery="2" FillColor="#3C465C"/>
+                        <chart:NumericalStripLine Start="6" Width ="1" RepeatEvery="2" FillColor="#3C465C"/>
+                        <chart:NumericalStripLine Start="8" Width ="1" RepeatEvery="2" FillColor="#3C465C"/>
+                        <chart:NumericalStripLine Start="10" Width ="1" RepeatEvery="2" FillColor="#3C465C"/>
+                        <chart:NumericalStripLine Start="12" Width ="1" RepeatEvery="2" FillColor="#3C465C"/>
+                        <chart:NumericalStripLine Start="14" Width ="1" RepeatEvery="1" FillColor="#3C465C"/>
+
+
+
+                    </chart:CategoryAxis.StripLines>
+                </chart:CategoryAxis>
+
+           
+            </chart:SfChart.PrimaryAxis>
 
             <chart:SfChart.SecondaryAxis >
                 <chart:NumericalAxis  RangePadding="Normal" >
+
+                   
                     <chart:NumericalAxis.LabelStyle>
 
-                        <chart:ChartAxisLabelStyle TextColor="Black" Font="Bold,10"/>
+                        <chart:ChartAxisLabelStyle TextColor="White" Font="Bold,10"/>
+
+
+
+            
 
                     </chart:NumericalAxis.LabelStyle>
+                    <chart:NumericalAxis.StripLines>
+                        <chart:NumericalStripLine Start="0" Width="100" FillColor="#0E111E" />
+
+
+
+                    </chart:NumericalAxis.StripLines>
                 </chart:NumericalAxis>
             </chart:SfChart.SecondaryAxis>
 
@@ -57,9 +95,27 @@
             </chart:SplineAreaSeries>
 
         </chart:SfChart>
+        <chart:SfChart  Grid.Row="1" VerticalOptions="FillAndExpand" BackgroundColor="#0E111E" >
 
-            
-        </Grid>
+       
 
+
+            <chart:DoughnutSeries    ItemsSource="{Binding donut}" XBindingPath="XValue" YBindingPath="YValue"
+                          Opacity=".8" TrackColor="Red" StartAngle="120" EndAngle="420" SelectedDataPointColor="Green"  EnableAnimation="True" MaximumValue="100"
+                          >
+
+
+            </chart:DoughnutSeries>
+
+
+
+
+
+
+        </chart:SfChart>
+
+
+    </Grid>
+    
   
 </ContentPage>

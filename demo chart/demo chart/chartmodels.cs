@@ -5,6 +5,8 @@ using System.Text;
 using Newtonsoft.Json;
 using RestSharp;
 using Syncfusion;
+using Syncfusion.SfChart.XForms;
+
 namespace demo_chart
 {
     public class ViewModel
@@ -13,12 +15,17 @@ namespace demo_chart
 
         public ObservableCollection<Model> Proceso { get; set; }
         public ObservableCollection<Model> Delays { get; set; }
+        public ObservableCollection<ChartDataPoint> donut { get; set; }
+        public ObservableCollection<ChartDataPoint> restante { get; set; }
 
         public ViewModel()
         {
             Concluidos = new ObservableCollection<Model>();
                 Proceso = new ObservableCollection<Model>();
             Delays = new ObservableCollection<Model>();
+            donut = new ObservableCollection<ChartDataPoint>();
+            restante = new ObservableCollection<ChartDataPoint>();
+
             call(JsonConvert.SerializeObject(new fecha { Fecha= "2017-09-29" }));
             
         }
@@ -27,31 +34,7 @@ namespace demo_chart
         public void call(string fecha) {
 
 
-            var client = new RestClient("http://webaccess.ddns.net:8011/DSOAPI");
-            var request = new RestRequest("api/Embarques/Embarquesporhora", Method.POST);
-
-            try
-            {
-
-
-
-                request.AddJsonBody(fecha);
-                IRestResponse response = client.Execute(request);
-                Console.WriteLine(response.Content);
-               var d= JsonConvert.DeserializeObject<List<datos>>(response.Content);
-                foreach (var h in d) {
-                    Concluidos.Add(new Model(h.hour,h.concluidos));
-                }
-
-
-
-              
-            }
-            catch
-            {
-
-
-                Concluidos = new ObservableCollection<Model>() {
+            Concluidos = new ObservableCollection<Model>() {
              //   new Model("12a",0),
                // new Model("1a",0),
                 //new Model("2a",0),
@@ -79,7 +62,7 @@ namespace demo_chart
 
             };
 
-                Proceso = new ObservableCollection<Model>() {
+            Proceso = new ObservableCollection<Model>() {
                // new Model("12a",0),
                 //new Model("1a",0),
                 //new Model("2a",0),
@@ -108,7 +91,7 @@ namespace demo_chart
             };
 
 
-                Delays = new ObservableCollection<Model>() {
+            Delays = new ObservableCollection<Model>() {
                 //new Model("12a",0),
                 //new Model("1a",0),
                 //new Model("2a",0),
@@ -135,11 +118,18 @@ namespace demo_chart
 
 
             };
+            donut = new ObservableCollection<ChartDataPoint>()
+            {
+                new ChartDataPoint("Porcentaje",65),
+                new ChartDataPoint("restante",35)
 
+            };
+            restante = new ObservableCollection<ChartDataPoint>()
+            {
+                new ChartDataPoint("restante",35),
+               new ChartDataPoint("Porcentaje",65),
 
-
-            }
-
+            };
         }
     }
 
@@ -165,5 +155,15 @@ namespace demo_chart
         public int concluidos { get; set; }
         public int enproceso { get; set; }
         public int delays { get; set; }
+    }
+
+    public class donut {
+        public string Expense { get; set; }
+        public double Value { get; set; }
+        public donut(string xExpense,double yValue) {
+            Expense = xExpense;
+            Value = yValue;
+        }
+
     }
 }
