@@ -95,9 +95,10 @@
             </chart:SplineAreaSeries>
 
         </chart:SfChart>
+
         <chart:SfChart  Grid.Row="1" VerticalOptions="FillAndExpand" BackgroundColor="#0E111E" >
 
-       
+
 
 
             <chart:DoughnutSeries    ItemsSource="{Binding donut}" XBindingPath="XValue" YBindingPath="YValue"
@@ -113,7 +114,6 @@
 
 
         </chart:SfChart>
-
 
     </Grid>
     
